@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Cours</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                  Menu <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand page-scroll" href="/">
+                  <i class="fa fa-book"></i> <span class="light">My</span> Cours
+              </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="nav navbar-nav">
+                  <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                  <li class="hidden">
+                      <a href="/cours"></a>
+                  </li>
+                      <ul class="nav navbar-nav navbar-right">
+                        <% if (user.email == 'admin@mycours.fr') { %>
+                        <li><a href="/admin"><i class="fa fa-user" aria-hidden="true"></i>  DashBoard </a></li>
+                        <% }%>
+                        <% if (user.role == 'Teacher') { %>
+                        <li><a href="/Upload"><i class="fa fa-plus" aria-hidden="true"></i>  Add Cours </a></li>
+                        <% }%>
+                        <li><a href="/about"><i class="fa fa-envelope" aria-hidden="true"></i> About Us</a></li>
+                        <li><a href="/contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contact Us</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">Welcom <b> <%= user.username %> </b></h1>
+      <p class="lead text-muted"> in <b> My Cours </b> Web site </br>
+                                the gate to be professional</p>
+    </div>
+  </section>
+  <div class="container">
+    <p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th><%= user._id %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email</td>
+          <td><%= user.email %></td>
+        </tr>
+        <tr>
+          <td>Phone Number</td>
+          <td><%= user.phone %></td>
+        </tr>
+        <tr>
+          <td>Role</td>
+          <td><%= user.role %></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><button onclick="myFunction()">Show/Hide</button>
+                <div id="mypass" style="display: none;" ><%= user.password %></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+function myFunction() {
+    var x = document.getElementById('mypass');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+  <div class="album text-muted">
+    <div class="container">
+      <div >
+        <a href="/cours" class="btn btn-success" role="button">Cours</a>
+        <a href="/logout" class="btn btn-danger" role="button">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <b> </b>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-1.12.4.min.js"><\/script>')</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
+  <script>
+    $(function () {
+      Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
+    });
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug
+  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+        -->
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#profile">My Profile</a></li>
+    <li><a data-toggle="tab" href="#defin">Defin Roles</a></li>
+    <li><a data-toggle="tab" href="#supp">Delete User</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="profile" class="tab-pane fade in active">
+      <h3>My Profile</h3>
+      <div class="container">
+        <p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th><%= user._id %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Email</td>
+              <td><%= user.email %></td>
+            </tr>
+            <tr>
+              <td>Phone Number</td>
+              <td><%= user.phone %></td>
+            </tr>
+            <tr>
+              <td>Role</td>
+              <td><%= user.role %></td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><button onclick="myFunction()">Show/Hide</button>
+                    <div id="mypass" style="display: none;" ><%= user.password %></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div id="defin" class="tab-pane fade">
+      <h3>Update Data</h3>
+         <form action="/update" method="post">
+             <div class="input">
+                 <label for="id">User Name</label>
+                 <input type="text" id="username" name="username">
+             </div>
+             <div class="input">
+                 <label for="author">Role</label>
+                 <input type="text" id="role" name="role">
+             </div>
+             <button type="submit">UPDATE</button>
+           </form>
+      </div>
+      <div id="supp" class="tab-pane fade">
+        <h3>Delete User</h3>
+           <form action="/delete" method="post">
+               <div class="input">
+                   <label for="id">UserName</label>
+                   <input type="text" id="username" name="username">
+               </div>
+               <button type="submit">delete the user</button>
+             </form>
+        </div>
+        <div id="profile" class="tab-pane fade in active">
+          <h3>My Profile</h3>
+          <div class="container">
+            <p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th><%= user._id %></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Email</td>
+                  <td><%= user.email %></td>
+                </tr>
+                <tr>
+                  <td>Phone Number</td>
+                  <td><%= user.phone %></td>
+                </tr>
+                <tr>
+                  <td>Role</td>
+                  <td><%= user.role %></td>
+                </tr>
+                <tr>
+                  <td>Password</td>
+                  <td><button onclick="myFunction()">Show/Hide</button>
+                        <div id="mypass" style="display: none;" ><%= user.password %></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  </div>
+</div>
+
+</body>
+</html>

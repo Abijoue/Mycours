@@ -1,0 +1,130 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>My Cours register</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <style>
+    /* gray #151515 */
+      body {padding-top:80px;}
+      </style>
+
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                  Menu <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand page-scroll" href="#page-top">
+                  <i class="fa fa-book"></i> <span class="light">My</span> Cours
+              </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+              <ul class="nav navbar-nav">
+                  <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                  <li class="hidden">
+                      <a href="#page-top"></a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#about">About</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#contact">Contact us</a>
+                  </li>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+  <!-- End Nav -->
+
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Sign Up </h1>
+
+    <div class="container">
+      <div class="row">
+      	<div class="col-md-6">
+
+              <form class="form-horizontal" action="" method="POST">
+              <fieldset>
+                <div id="legend">
+                  <legend class=""></legend>
+            <!--
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="username">Username</label>
+            <div class="controls">
+              <input id="username" name="username" placeholder="" class="form-control input-lg" type="text">
+              <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+            </div>
+          </div>
+          -->
+          <!-- show any messages that come back with authentication -->
+             <% if (messages.length > 0) { %>
+                 <div class="alert alert-danger"><%= messages %></div>
+             <% } %>
+             </div>
+             <div class="control-group">
+               <label class="control-label" for="username">Username</label>
+               <div class="controls">
+                 <input id="username" name="username" placeholder="" class="form-control input-lg" type="text">
+                 <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+               </div>
+             </div>
+               <div>
+                <div class="control-group">
+                  <label class="control-label" for="email">E-mail</label>
+                  <div class="controls">
+                    <input id="email" name="email" placeholder="" class="form-control input-lg" type="email">
+                    <p class="help-block">Please provide your E-mail</p>
+                  </div>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" for="username">Phone</label>
+                <div class="controls">
+                  <input id="phone" name="phone" placeholder="" class="form-control input-lg" type="text">
+                  <p class="help-block">The phone number can't contain any letters or Symbols</p>
+                </div>
+              </div>
+                <div class="control-group">
+                  <label class="control-label" for="password">Password</label>
+                  <div class="controls">
+                    <input id="password" name="password" placeholder="" class="form-control input-lg" type="password">
+                    <p class="help-block">Password should be at least 6 characters</p>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                  <div class="controls">
+                    <input id="password_confirm" name="password_confirm" placeholder="" class="form-control input-lg" type="password">
+                    <p class="help-block">Please confirm password</p>
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <!-- Button -->
+                  <button type="submit" class="btn btn-success">Sign In</button>
+                  <div class="controls">
+                    <p>Already have an account ? <a href="/signin">Login</a></p>
+                    <p>Or go <a href="/">home Page</a>.</p>
+                    </div>
+                </div>
+              </fieldset>
+            </form>
+
+        </div>
+      </div>
+    </div>
+</body>
+</html>
